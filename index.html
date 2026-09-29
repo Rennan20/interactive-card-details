@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Interactive card details form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="card-preview">
+        <div class="card-front">
+          <img src="images/bg-card-front.png" alt="Card front" />
+          <p class="card-number-display">0000 0000 0000 0000</p>
+          <p class="card-name-display">Jane Appleseed</p>
+          <p class="card-date-display">00/00</p>
+        </div>
+
+        <div class="card-back">
+          <img src="images/bg-card-back.png" alt="Card back" />
+          <p class="card-cvc-display">000</p>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <form>
+          <div class="form-group">
+            <label for="cardholder-name">Cardholder Name</label>
+            <input
+              type="text"
+              id="cardholder-name"
+              placeholder="e.g. Jane Appleseed"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input
+              type="text"
+              id="card-number"
+              placeholder="e.g. 1234 5678 9123 0000"
+              maxlength="19"
+              required
+              inputmode="numeric"
+            />
+          </div>
+          <div class="form-row">
+            <fieldset class="form-group expiry-group">
+              <legend>Exp. Date (MM/YY)</legend>
+              <div class="expiry-inputs">
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="expiry-month"
+                  maxlength="2"
+                  placeholder="MM"
+                  required
+                  aria-label="Expiration month"
+                />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  id="expiry-year"
+                  placeholder="YY"
+                  maxlength="2"
+                  required
+                  aria-label="Expiration year"
+                />
+              </div>
+            </fieldset>
+
+            <div class="form-group cvc-group">
+              <label for="card-cvc">CVC</label>
+              <input
+                type="text"
+                inputmode="numeric"
+                id="card-cvc"
+                placeholder="e.g. 123"
+                maxlength="3"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit">Confirm</button>
+        </form>
+      </section>
+
+      <section class="success-section">
+        <img src="images/icon-complete.svg" alt="Complete icon" />
+        <h2>Thank you!</h2>
+        <p>We've added your card details</p>
+        <button type="button">Continue</button>
+      </section>
+    </main>
+  </body>
+</html>
