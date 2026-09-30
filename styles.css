@@ -52,4 +52,151 @@ input {
 
 main {
   min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-preview {
+  width: 35%;
+  background-image: url("images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-front {
+  top: 20%;
+  left: 40%;
+}
+
+.card-back {
+  top: 60%;
+  left: 60%;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 447px;
+}
+.card-background {
+  width: 100%;
+}
+.form-section {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-section {
+  display: none;
+}
+
+.card-number-display {
+  position: absolute;
+  top: 60%;
+  left: 10%;
+  color: var(--white);
+}
+
+.card-name-display {
+  position: absolute;
+  left: 32px;
+  bottom: 25px;
+  color: var(--white);
+}
+
+.card-logo-display {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  width: 84px;
+}
+
+.card-date-display {
+  position: absolute;
+  top: 80%;
+  right: 20%;
+  color: var(--white);
+}
+
+.card-cvc-display {
+  position: absolute;
+  top: 45%;
+  right: 20%;
+  color: var(--white);
+}
+
+/* form */
+form {
+  width: 100%;
+  max-width: 336px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.expiry-inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+label,
+legend {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--gray-400);
+}
+
+input:focus {
+  border-color: transparent;
+
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(90deg, var(--gradient-start), var(--gradient-end))
+      border-box;
+}
+
+button {
+  width: 100%;
+  background-color: var(--purple-950);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: var(--red-400);
+  font-size: 12px;
+}
+
+input.error {
+  border-color: var(--red-400);
 }
