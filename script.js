@@ -13,6 +13,9 @@ const nameError = document.querySelector("#name-error");
 const numberError = document.querySelector("#number-error");
 const dateError = document.querySelector("#date-error");
 const cvcError = document.querySelector("#cvc-error");
+const formSection = document.querySelector(".form-section");
+const successSection = document.querySelector(".success-section");
+const continueButton = document.querySelector(".continue-button");
 nameInput.addEventListener("input", (e) => {
   const valorInput = e.target.value.trim();
   nameDisplay.textContent =
@@ -58,6 +61,7 @@ cvcInput.addEventListener("input", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  let isValid = true;
 
   const nameValue = nameInput.value.trim();
   const numberValue = numberInput.value.replace(/\D/g, "");
@@ -68,9 +72,59 @@ form.addEventListener("submit", (e) => {
   if (nameValue === "") {
     nameError.textContent = "Can't be blank";
     nameInput.classList.add("error");
+    isValid = false;
   } else {
-    nameError.display = none;
-
+    nameError.textContent = "";
     nameInput.classList.remove("error");
   }
+  if (numberValue.length !== 16) {
+    numberError.textContent = "Wrong format, numbers only";
+    numberInput.classList.add("error");
+    isValid = false;
+  } else {
+    numberError.textContent = "";
+    numberInput.classList.remove("error");
+  }
+  if (monthValue === "" || yearValue === "") {
+    dateError.textContent = "Can't be blank";
+    if (monthValue === "") {
+      monthInput.classList.add("error");
+    } else {
+      monthInput.classList.remove("error");
+    }
+
+    if (yearValue === "") {
+      yearInput.classList.add("error");
+    } else {
+      yearInput.classList.remove("error");
+    }
+    isValid = false;
+  } else {
+    dateError.textContent = "";
+    monthInput.classList.remove("error");
+    yearInput.classList.remove("error");
+  }
+  if (cvcValue.length !== 3) {
+    cvcError.textContent = "Can't be blank";
+    cvcInput.classList.add("error");
+    isValid = false;
+  } else {
+    cvcError.textContent = "";
+    cvcInput.classList.remove("error");
+  }
+  if (isValid) {
+    formSection.classList.add("hidden");
+    successSection.classList.add("active");
+  }
+});
+
+continueButton.addEventListener("click", () => {
+  successSection.classList.remove("active");
+  formSection.classList.remove("hidden");
+
+  form.reset();
+  nameDisplay.textContent = "Jane Appleseed";
+  numberDisplay.textContent = "0000 0000 0000 0000";
+  dateDisplay.textContent = `00/00`;
+  cvcDisplay.textContent = "000";
 });

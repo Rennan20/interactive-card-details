@@ -91,7 +91,31 @@ main {
 }
 
 .success-section {
+  width: 65%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   display: none;
+}
+
+.success-section img {
+  width: 84px;
+  margin-bottom: 24px;
+}
+
+.success-section h2 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.success-section p {
+  margin-bottom: 40px;
+  color: var(--gray-400);
+}
+
+.success-section button {
+  max-width: 336px;
 }
 
 .card-number-display {
@@ -199,4 +223,67 @@ button {
 
 input.error {
   border-color: var(--red-400);
+}
+.hidden {
+  display: none;
+}
+.success-section.active {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .card-preview {
+    width: 100%;
+    height: 240px;
+    background-image: url("images/bg-main-mobile.png");
+  }
+
+  .form-section,
+  .success-section {
+    width: 100%;
+    padding-top: 90px;
+  }
+
+  .card-front,
+  .card-back {
+    width: 285px;
+  }
+
+  .card-back {
+    top: 32px;
+    right: 16px;
+    left: auto;
+  }
+
+  .card-front {
+    top: 126px;
+    left: 16px;
+  }
+  .card-logo-display {
+    top: 18px;
+    left: 20px;
+    width: 55px;
+  }
+  .card-number-display {
+    font-size: 18px;
+  }
+  .card-name-display {
+    left: 20px;
+    bottom: 18px;
+  }
+  .card-date-display {
+    top: auto;
+    right: 20px;
+    bottom: 18px;
+  }
+
+  .card-name-display,
+  .card-date-display,
+  .card-cvc-display {
+    font-size: 12px;
+  }
 }
